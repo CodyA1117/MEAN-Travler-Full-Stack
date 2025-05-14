@@ -1,6 +1,11 @@
 const index = (req, res) => {
     res.render('index', {
-        title: 'Express',
-        message: 'Hello World'
+        title: 'Travlr Getaways'
+    
     });
+}
+
+    module.exports = {
+        index
     }
+    
