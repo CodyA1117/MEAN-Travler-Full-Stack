@@ -1,16 +1,31 @@
 [
   {
+    "code": "GR001",
     "name": "Gale Reef",
+    "length": "7 days",
+    "start": "2024-07-01T00:00:00Z",
+    "resort": "Gale Resort",
+    "perPerson": "$999",
     "image": "reef1.jpg",
     "description": "<p><strong>Gale Reef</strong> Sed et augue lorem. In sit amet placerat.</p>"
   },
   {
+    "code": "DR001",
     "name": "Dawson's Reef",
+    "length": "5 days",
+    "start": "2024-08-15T00:00:00Z",
+    "resort": "Dawson's Hideaway",
+    "perPerson": "$799",
     "image": "reef2.jpg",
     "description": "<p><strong>Dawson's Reef</strong> Magna leo, posuere et digni.</p>"
   },
   {
+    "code": "CR001",
     "name": "Claire's Reef",
+    "length": "10 days",
+    "start": "2024-09-10T00:00:00Z",
+    "resort": "Claire's Paradise",
+    "perPerson": "$1299",
     "image": "reef3.jpg",
     "description": "<p><strong>Claire's Reef</strong> Donec sed felis risus. Nulla facili.</p>"
   }
