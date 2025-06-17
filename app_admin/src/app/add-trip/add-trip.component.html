@@ -1,0 +1,54 @@
+<div class="col-md-8 offset-md-2">
+    <h2 class="text-center">Add Trip</h2>
+    <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
+
+        <div class="form-group mb-3">
+            <label>Code:</label>
+            <input type="text" formControlName="code" placeholder="Code" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['code'].errors }">
+            <div *ngIf="submitted && f['code'].errors" class="invalid-feedback">
+                <div *ngIf="f['code'].errors?.['required']">Trip Code is required</div>
+            </div>
+        </div>
+
+        <div class="form-group mb-3">
+            <label>Name:</label>
+            <input type="text" formControlName="name" placeholder="Name" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['name'].errors }">
+            <div *ngIf="submitted && f['name'].errors" class="invalid-feedback">
+                <div *ngIf="f['name'].errors?.['required']">Name is required</div>
+            </div>
+        </div>
+
+        <!-- ... and so on for all other form groups ... -->
+        <div class="form-group mb-3">
+            <label>Length:</label>
+            <input type="text" formControlName="length" placeholder="Length" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['length'].errors }">
+        </div>
+        
+        <div class="form-group mb-3">
+            <label>Start Date:</label>
+            <input type="date" formControlName="start" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['start'].errors }">
+        </div>
+
+        <div class="form-group mb-3">
+            <label>Resort:</label>
+            <input type="text" formControlName="resort" placeholder="Resort" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['resort'].errors }">
+        </div>
+        
+        <div class="form-group mb-3">
+            <label>Per Person Cost:</label>
+            <input type="text" formControlName="perPerson" placeholder="Cost" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['perPerson'].errors }">
+        </div>
+        
+        <div class="form-group mb-3">
+            <label>Image Name:</label>
+            <input type="text" formControlName="image" placeholder="e.g., reef1.jpg" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['image'].errors }">
+        </div>
+
+        <div class="form-group mb-3">
+            <label>Description:</label>
+            <textarea formControlName="description" placeholder="Description" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['description'].errors }"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-info">Save</button>
+    </form>
+</div>
