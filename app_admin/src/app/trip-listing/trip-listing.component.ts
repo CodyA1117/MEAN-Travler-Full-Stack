@@ -3,7 +3,8 @@ import { CommonModule } from '@angular/common';
 import { TripCardComponent } from '../trip-card/trip-card.component';
 import { Trip } from '../models/trip';
 import { TripDataService } from '../services/trip-data.service';
-import { Router } from '@angular/router'; // Import Router
+import { AuthenticationService } from '../services/authentication';
+import { Router } from '@angular/router'; 
 
 @Component({
   selector: 'app-trip-listing',
@@ -18,7 +19,8 @@ export class TripListingComponent implements OnInit {
 
   constructor(
     private tripDataService: TripDataService,
-    private router: Router // Inject Router
+    private router: Router,
+    private authenticationService: AuthenticationService
   ) { }
   
   public addTrip(): void {
@@ -26,30 +28,30 @@ export class TripListingComponent implements OnInit {
   }
 
   
-  private getTrips(): void {
-    console.log('Inside TripListingComponent#getTrips');
+ private getTrips(): void {
     this.message = 'Searching for trips';
+    
     this.tripDataService.getTrips()
-      .subscribe({
-        next: (value: any) => {
-          this.trips = value;
-          if (value.length > 0) {
-            this.message = 'There are ' + value.length + ' trips available.';
-          } else {
-            this.message = 'There were no trips retrieved from the database';
-          }
-          console.log(this.message);
-        },
-        error: (error: any) => {
-          console.log('Error: ' + error);
-          this.message = 'Error fetching trips';
-        }
-      })
-  }
+        .subscribe({
+            next: (value: any) => {
+                this.trips = value;
+               
+            },
+            error: (error: any) => {
+                console.log('Error: ' + error);
+                this.message = 'Error fetching trips.';
+            }
+        });
+}
 
 
   ngOnInit(): void {
     console.log('ngOnInit');
     this.getTrips();
+
+    
+  }
+  public isLoggedIn(): boolean {
+    return this.authenticationService.isLoggedIn();
   }
 }
